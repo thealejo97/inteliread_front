@@ -42,8 +42,8 @@ function App() {
   
   return (
     <div className="container mt-5">
-      <div className="row">
-        <div className="col-md-4 offset-md-4">
+      <div className="row d-flex justify-content-center">
+        <div className="col-md-4">
           <div className="card">
             <div className="card-body">
               
@@ -54,7 +54,7 @@ function App() {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="username" className="form-label">
-                    username address
+                    username
                   </label>
                   <input
                     type="username"
