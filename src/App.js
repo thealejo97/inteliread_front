@@ -46,8 +46,12 @@ function App() {
         <div className="col-md-4 offset-md-4">
           <div className="card">
             <div className="card-body">
-              <h3 className="card-title text-center mb-4">Login</h3>
+              
               <form onSubmit={handleFormSubmit}>
+                <div className="mb-3 text-center">
+                  <img className="img-fluid" src="../images/logo.png" alt="Logo" style={{ maxHeight: 50 }} />
+                  <h3 className="card-title text-center mb-4">Inteliread</h3>
+                </div>
                 <div className="mb-3">
                   <label htmlFor="username" className="form-label">
                     username address
