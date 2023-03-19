@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { Navigate } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom'; // agrega este import
+
 import axios from "axios";
 
 function App() {
@@ -8,6 +11,7 @@ function App() {
   });
 
   const [message, setMessage] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -22,11 +26,20 @@ function App() {
         user
       );
       setMessage(response.data.message);
+      setLoggedIn(true);
+      console.log("Login exitoso")
+      console.log(loggedIn);
     } catch (error) {
       setMessage(error.response.data.message);
     }
   };
 
+  if (loggedIn) {
+    return (
+      <Navigate to="/404/" replace={true} />
+    )
+  }
+  
   return (
     <div className="container mt-5">
       <div className="row">
@@ -78,4 +91,10 @@ function App() {
   );
 }
 
-export default App;
+export default function WrappedApp() { // agrega el componente Router
+  return (
+    <Router>
+      <App />
+    </Router>
+  )
+}
