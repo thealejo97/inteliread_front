@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from "./Navbar";
 
 const Home = ({ handleLogout }) => {
-  const navigate = useNavigate();
+
 
   return (
     <>

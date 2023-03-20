@@ -1,33 +1,40 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Dropdown from 'react-bootstrap/Dropdown';
+import { useState } from 'react';
+import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-const Navbar = ({ handleLogout }) => {
-  return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container-fluid">
-            <Link to="/home" className="navbar-brand">
-            <img src="/images/logo.png" alt="Logo" height="30" className="d-inline-block align-text-top me-2" />
+function MyNavbar() {
+    const [showMenu, setShowMenu] = useState(false);
+
+    const handleMenu = () => {
+        setShowMenu(!showMenu);
+    };
+
+    return (
+        <Navbar bg="light" expand="lg">
+          <Navbar.Brand href="#">
+            
+    
+          <Link to="/home" className="navbar-brand">
+            <img src="/images/logo.png" alt="Logo" height="30" className="d-inline-block align-text-top mx-3" />
             Inteliread
-            </Link>
-            <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul className="navbar-nav">
-                
-            <Dropdown>
-                <Dropdown.Toggle  id="dropdown-basic">
-                    Opciones
-                </Dropdown.Toggle>
-
-                <Dropdown.Menu>
-                    <Dropdown.Item href="/login">Logout</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
-            </ul>
-            </div>
-        </div>
-        </nav>
-
-  );
+          </Link>
+    
+    
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" cc />
+          <Navbar.Collapse id="basic-navbar-nav" className="mx-4 px-4">
+            <Nav className="me-auto">
+              <Nav.Link href="#">Home</Nav.Link>
+              {/* <Nav.Link href="#">Features</Nav.Link>
+              <Nav.Link href="#">About</Nav.Link> */}
+            </Nav>
+            <NavDropdown title="Options" onClick={handleMenu} className="mx-3">
+              <NavDropdown.Item href="#">Perfil</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="/login">Logout</NavDropdown.Item>
+            </NavDropdown>
+          </Navbar.Collapse>
+        </Navbar>
+      );
 };
-
-export default Navbar;
+export default MyNavbar;
