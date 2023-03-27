@@ -28,7 +28,7 @@ function MyNavbar() {
               {/* <Nav.Link href="#">Features</Nav.Link>
               <Nav.Link href="#">About</Nav.Link> */}
             </Nav>
-            <NavDropdown title="Options" onClick={handleMenu} className="mx-3">
+            <NavDropdown title="Opciones" onClick={handleMenu} className="mx-3">
               <NavDropdown.Item href="#">Perfil</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="/login">Logout</NavDropdown.Item>
