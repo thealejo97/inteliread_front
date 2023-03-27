@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect  } from "react";
 import { Navigate } from 'react-router-dom';
 import axios from "axios";
 
@@ -10,10 +10,24 @@ function Login() {
 
   const [message, setMessage] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value });
+  };
+
+
+  
+  useEffect(() => {
+    if (!showAlert) {
+      setMessage("");
+    }
+  }, [showAlert]);
+
+
+  const handleAlertClose = () => {
+    setShowAlert(false);
   };
 
   const handleFormSubmit = async (event) => {
@@ -28,7 +42,8 @@ function Login() {
       console.log("Login exitoso")
       console.log(loggedIn);
     } catch (error) {
-      setMessage(error.response.data.message);
+      setMessage(error.message);
+      setShowAlert(true);
     }
   };
 
@@ -83,7 +98,22 @@ function Login() {
                 </button>
               </form>
               <div className="mt-3 text-center">
-                {message && <p className="text-danger">{message}</p>}
+                  {showAlert && (
+                    <div
+                      className="alert alert-danger alert-dismissible fade show fixed-top"
+                      role="alert"
+                      style={{ position: "fixed" }}
+                    >
+                      <strong>Error:</strong> {message}.
+                      <button
+                        type="button"
+                        className="btn-close"
+                        data-bs-dismiss="alert"
+                        aria-label="Close"
+                        onClick={handleAlertClose}
+                      ></button>
+                    </div>
+                  )}
               </div>
             </div>
           </div>
