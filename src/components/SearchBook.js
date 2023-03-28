@@ -55,7 +55,7 @@ function SearchBook() {
           <ul>
             {data.map((book, index) => (
               <li className='row mx-0 my-1'>
-                <p className='col-9'>{book.title} - {book.author_name} - {book.number_of_pages_median ? book.number_of_pages_median : 'N'}</p> <div className='col-3'><Read /></div>
+                <p className='col-9'>{book.title} - {book.author_name} - {book.number_of_pages_median ? book.number_of_pages_median : 'N'}</p> <div className='col-3'><Read bookKey={book.key} bookTotalPages={book.number_of_pages_median} /></div>
               </li>              
             ))}
           </ul> 

@@ -39,8 +39,9 @@ function Login() {
       );
       setMessage(response.data.message);
       setLoggedIn(true);
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('userId', response.data.id);
       console.log("Login exitoso")
-      console.log(loggedIn);
     } catch (error) {
       setMessage(error.message);
       setShowAlert(true);

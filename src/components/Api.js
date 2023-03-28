@@ -28,13 +28,27 @@ export const getAuthorBooks = async (bookData) => {
   }
 
 
-export const setReadingBook = async (bookData) => {
-  const response = await fetch(`http://localhost:9000/api/booksApi/setReadingBook/`, {
+export const setReadingBook = async (bookData,total_p,end_p,time_r,user_i) => {
+  const bookID = bookData;
+  const total_pages = total_p;
+  const end_page = end_p;
+  const time = time_r;
+  const user_id = user_i;
+
+
+  const response = await fetch(`http://localhost:9000/api/readingSession/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ limit:10})
+    body: JSON.stringify({ 
+      book:bookData,
+      total_pages:total_pages,
+      end_page:end_page,
+      time:time,
+      comment_session:'Initial',
+      user:user_id
+    })
   });
   const data = await response.json();
   return data;
