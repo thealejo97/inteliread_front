@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getAuthorBooks } from './Api';
 import { Carousel } from "react-bootstrap";
+import Read from "./Read";
 
 function ListBooks() {
   const [data, setData] = useState([]);
@@ -10,9 +11,6 @@ function ListBooks() {
       try{
           const result = await getAuthorBooks('');
           setData(result);
-          console.log("-----------------")
-          console.log(result)
-          console.log(result.docs)
           setData(result.docs)
         }catch (error) {
           console.error("API error: ", error);
@@ -26,7 +24,7 @@ function ListBooks() {
       {data.map((item, index) => (
         <Carousel.Item key={index}>
             <div className="d-flex justify-content-center align-items-center" style={{backgroundColor: '#E6E6E6'}}>
-            <div className="text-center my-3" >
+            <div className="text-center mb-5 mt-3" >
 
               <h4>{item.title}</h4>
               {item.author_name ?
@@ -46,12 +44,16 @@ function ListBooks() {
               <p>ISBN: NA</p>
               }
               {item.isbn ?
-              <img src={`https://covers.openlibrary.org/b/isbn/${item.isbn[0]}-M.jpg`} alt={`Portada del libro ${item.title}`} style={{width: '200px', height: '300px'}}/> :
-              <img src='../images/no_image_book.jpg' alt='No book' style={{width: '200px', height: '300px'}} /> 
+              <img src={`https://covers.openlibrary.org/b/isbn/${item.isbn[0]}-M.jpg`} alt={`Portada del libro ${item.title}`} style={{width: '100px', height: '150px',backgroundColor:'white'}}/> :
+              <img src={""} style={{minWidth: '100px', minHeight: '150px',backgroundColor:'white'}}/>
               }
+              <div className='col-12 mt-3'>
+              <Read />
+              </div>
             </div>
           </div>
-        </Carousel.Item>
+          
+        </Carousel.Item> 
       ))}
     </Carousel>
   );

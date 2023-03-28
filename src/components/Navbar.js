@@ -24,7 +24,7 @@ function MyNavbar() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" cc />
           <Navbar.Collapse id="basic-navbar-nav" className="mx-4 px-4">
             <Nav className="me-auto">
-              <Nav.Link href="#">Home</Nav.Link>
+{/*              <Nav.Link href="#">Home</Nav.Link>
               {/* <Nav.Link href="#">Features</Nav.Link>
               <Nav.Link href="#">About</Nav.Link> */}
             </Nav>
