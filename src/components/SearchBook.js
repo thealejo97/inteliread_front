@@ -37,21 +37,21 @@ function SearchBook() {
         </Button>
       </Form>
       
-
+      {data.length === 0 ? 
+        <div class="alert alert-warning mt-3" role="alert">
+          No se ha encontrado libro
+        </div>
+      
+      
+      : null}
       <div className='mt-3'>
+        <ul>
           {data.map((book, index) => (
-           <div className='row mx-0 my-1'>
-              <div className='col-9 '>
-                <li>
-                {book.title}
-                </li>
-              </div>
-              <div className='col-3'>
-               <Read />
-              </div>
-            </div>
+                <li className='row mx-0 my-1'>
+                <p className='col-9'>{book.title} - {book.author_name} - {book.number_of_pages_median ? book.number_of_pages_median : 'N'}</p> <div className='col-3'><Read /></div>
+                </li>              
           ))}
-        
+        </ul> 
       </div>
     </div>
   );

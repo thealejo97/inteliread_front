@@ -18,7 +18,7 @@ function Read() {
   }
 
   return (
-        <div className='col-12'>
+        <div>
             <button className='btn btn-primary' onClick={handleButtonClick}>Añadir a mis libros</button>
         </div>
   );

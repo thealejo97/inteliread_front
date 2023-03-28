@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from 'react-router-dom';
 import Navbar from "./Navbar";
 import SearchBook from "./SearchBook";
-import ListBooks from "./ListBooks";
+import CarruselBooks from "./CarruselBooks";
 
 
 const Home = ({ handleLogout }) => {
@@ -11,7 +11,7 @@ const Home = ({ handleLogout }) => {
   return (
     <>
       <Navbar />
-      <ListBooks />
+      <CarruselBooks />
       <div className="row mx-0 text-center">
         <div className="col-12 mb-4">
           <h1>¡Lectura organizada, mente enfocada!</h1>

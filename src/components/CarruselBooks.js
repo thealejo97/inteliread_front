@@ -3,7 +3,7 @@ import { getAuthorBooks } from './Api';
 import { Carousel } from "react-bootstrap";
 import Read from "./Read";
 
-function ListBooks() {
+function CarruselBooks() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -59,4 +59,4 @@ function ListBooks() {
   );
 }
 
-export default ListBooks;
+export default CarruselBooks;
