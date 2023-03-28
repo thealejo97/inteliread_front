@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from "./Navbar";
 import SearchBook from "./SearchBook";
 import CarruselBooks from "./CarruselBooks";
+import MyBooks from "./MyBooks";
 
 
 const Home = ({ handleLogout }) => {
@@ -17,14 +18,7 @@ const Home = ({ handleLogout }) => {
           <h1>¡Lectura organizada, mente enfocada!</h1>
         </div>
         <div className="col-lg-6 col-12 text-center">
-          <h4>Mis Libros</h4>
-          <ul>
-            <li>Libro 1 </li>
-            <li>Libro 2 </li>
-            <li>Libro 3 </li>
-            <li>Libro 4 </li>
-            <li>Libro 5 </li>
-          </ul>
+          <MyBooks />
         </div>
         <div className="col-lg-6 col-12 text-center">
           <SearchBook />

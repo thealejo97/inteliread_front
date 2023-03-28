@@ -68,3 +68,14 @@ export const getTitleBook = async (bookData) => {
   return data;
 
   }
+
+  export const getMyBooks = async (userId) => {
+    const response = await fetch(`http://localhost:9000/api/readingSession/getReadingSessionByUser/${userId}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    const data = await response.json();
+    return data;
+  }
