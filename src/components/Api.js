@@ -28,12 +28,13 @@ export const getAuthorBooks = async (bookData) => {
   }
 
 
-export const setReadingBook = async (bookData,total_p,end_p,time_r,user_i) => {
+export const setReadingBook = async (bookData,total_p,end_p,time_r,user_i, comment) => {
   const bookID = bookData;
   const total_pages = total_p;
   const end_page = end_p;
   const time = time_r;
   const user_id = user_i;
+  const comment_sesion = comment;
 
 
   const response = await fetch(`http://localhost:9000/api/readingSession/`, {
@@ -42,15 +43,16 @@ export const setReadingBook = async (bookData,total_p,end_p,time_r,user_i) => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({ 
-      book:bookData,
+      book:bookID,
       total_pages:total_pages,
       end_page:end_page,
       time:time,
-      comment_session:'Initial',
+      comment_session:comment_sesion,
       user:user_id
     })
   });
   const data = await response.json();
+  console.log("respuesta api guardar sesion", data)
   return data;
 
   }
